@@ -1,0 +1,97 @@
+/* 1. BASE */
+:root{ --azul:#0A1931; --amarillo:#FFD700; }
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+body{background:#f1f5f9;
+  color:#334155}
+a{text-decoration:none}
+
+/* 2. HEADER */
+.header-azul{background:var(--azul);border-bottom:5px solid var(--amarillo);
+  position:sticky;top:0;z-index:100}
+.header-azul nav{max-width:1200px;margin:0 auto;
+  padding:16px 24px;display:flex;justify-content:space-between;
+  align-items:center}
+.logo{display:flex;align-items:center;
+  gap:12px}
+.logo img{width:48px;
+  height:48px;border-radius:50%;
+  border:2px solid var(--amarillo)}
+.logo h1{color:#fff;
+  font-size:18px;
+  font-weight:900}
+.logo h1 small{display:block;color:var(--amarillo);font-size:11px}
+.menu{display:flex;gap:20px;
+  align-items:center}
+.menu a{color:#cbd5e1;
+  font-weight:600}
+.menu a.active{color:var(--amarillo)}
+
+/* 3. DROPDOWN NOSOTROS */
+.dropdown{position:relative}
+.btn-menu-dropdown{background:none;border:none;color:#cbd5e1;font-weight:600;cursor:pointer}
+.dropdown-menu{display:none;position:absolute;top:140%;right:0;background:#fff;min-width:200px;border-radius:10px;box-shadow:0 10px 20px rgba(0,0,0,.2);flex-direction:column;z-index:10}
+.dropdown-menu.show{display:flex}
+.dropdown-menu a{color:var(--azul);padding:12px 16px}
+.dropdown-menu a:hover{background:#fef9c3}
+.dropdown:hover .dropdown-menu{display:flex}
+
+/* 4. HERO */
+.hero-niveles{height:280px;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--azul);position:relative;overflow:hidden}
+.hero-niveles-bg{position:absolute;inset:0;background:linear-gradient(rgba(10,25,49,.7),rgba(10,25,49,.9)), url('../img/Niveles.jpeg') center/cover}
+.hero-niveles-text{position:relative;color:#fff}
+.hero-niveles-text h2{font-size:38px;font-weight:900}
+.hero-niveles-text h2 span{color:var(--amarillo)}
+.barra-hero{width:60px;height:4px;background:var(--amarillo);margin:10px auto;border-radius:10px}
+
+/* 5. TABS */
+.horarios-wrap{max-width:1100px;margin:30px auto;padding:0 20px}
+.titulo-seccion{text-align:center;color:var(--azul);margin-bottom:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.hor-card{background:#fff;border:2px solid #e2e8f0;border-radius:12px;padding:18px;text-align:center;cursor:pointer;transition:.2s}
+.hor-card.active{background:var(--azul);color:#fff;border-color:var(--azul)}
+.hor-card:hover{transform:translateY(-4px)}
+
+/* 6. DETALLE */
+.detalle-wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.detalle-nivel{display:none;background:#fff;border-left:6px solid var(--azul);border-radius:12px;padding:20px}
+.detalle-nivel.activo{display:block}
+.detalle-top{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:center}
+.foto-nivel{width:100%;height:170px;object-fit:cover;border-radius:10px;border:3px solid var(--amarillo)}
+.nivel-tag{
+  font-size:11px;
+  color:#64748b;
+  font-weight:700}
+.detalle-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:16px}
+.detalle-grid div{
+  background:#f8fafc;
+  padding:12px;
+  border-radius:8px;
+  font-size:13px}
+
+/* 7. REQUISITOS */
+.requisitos-wrap{max-width:1100px;margin:30px auto;padding:0 20px}
+.requisitos-card{background:#fff;border-left:6px solid var(--amarillo);border-radius:12px;padding:20px}
+.req-head{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+.req-icon{background:var(--azul);color:var(--amarillo);width:32px;height:32px;display:grid;place-items:center;border-radius:6px;font-weight:900}
+.req-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.req-item{display:flex;gap:8px;background:#f8fafc;padding:10px;border-radius:8px;font-size:13px}
+.req-item.nota{background:#fef9c3;border:1px dashed #eab308}
+
+/* 8. FOOTER */
+.footer-azul{background:var(--azul);color:#cbd5e1;text-align:center;padding:18px;border-top:4px solid var(--amarillo);margin-top:40px;font-size:13px}
+
+/* 9. RESPONSIVE */
+@media(max-width:768px){
+  .grid-3,.detalle-grid,.req-grid,.detalle-top{grid-template-columns:1fr}
+  .header-azul nav{flex-direction:column;gap:8px}
+}
+/*Menu nosotros*/
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  display: flex !important;
+  flex-direction: column;
+}
