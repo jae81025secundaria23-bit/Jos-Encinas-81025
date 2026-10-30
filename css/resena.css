@@ -296,3 +296,66 @@
   background: var(--amarillo);
   box-shadow: 0 0 0 4px rgba(255,215,0,.3);
 }
+
+/* ======================================================
+    ADAPTACIÓN DEL MENÚ DE CABECERA PARA CELULARES
+   ====================================================== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Muestra el ícono ☰ en el celular */
+  }
+
+  .menu {
+    display: none; /* Oculta el menú horizontal */
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--azul);
+    padding: 20px;
+    gap: 12px;
+    border-bottom: 4px solid var(--amarillo);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    z-index: 99999;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu a {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .dropdown {
+    width: 100%;
+  }
+
+  .btn-menu-dropdown {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+  }
+
+  .dropdown-menu {
+    position: static; 
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+    border: none;
+    margin-top: 5px;
+    border-radius: 8px;
+  }
+
+  .dropdown-menu a {
+    color: #ffffff !important;
+    padding-left: 24px;
+  }
+
+  .dropdown-menu a:hover {
+    background: rgba(255,255,255,0.15);
+  }
+}

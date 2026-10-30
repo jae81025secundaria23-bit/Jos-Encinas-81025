@@ -1,4 +1,82 @@
-/* HERO LIMPIO Y GRANDE */
+/* ======================================================
+   I.E. 81025 JOSE ANTONIO ENCINAS
+   CSS MISIÓN Y VISIÓN (ADAPTADO A CELULARES) - 2026
+   ====================================================== */
+
+/* ---------- 1. VARIABLES ---------- */
+:root {
+  --azul: #0A1931;
+  --amarillo: #FFD700;
+  --blanco: #ffffff;
+}
+
+/* ---------- 2. BASE ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- 3. DROPDOWN Y ELEMENTOS DE CABECERA ---------- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-menu-dropdown {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+.dropdown-menu {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  min-width: 180px;
+  box-shadow: 0px 8px 24px rgba(10, 25, 49, 0.15);
+  border-radius: 8px;
+  z-index: 1000;
+  overflow: hidden;
+  border: 1px solid rgba(10, 25, 49, 0.1);
+}
+
+.dropdown-menu a {
+  color: var(--azul) !important;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(255, 215, 0, 0.2);
+}
+
+/* Fuerza el despliegue cuando JS añade la clase */
+.dropdown-menu.show {
+  display: block !important;
+}
+
+/* BOTÓN HAMBURGUESA (Oculto en computadoras) */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* ---------- 4. HERO LIMPIO Y GRANDE ---------- */
 .hero-mv{
   position:relative;
   height:460px;
@@ -77,7 +155,7 @@
   to{ width:120px; opacity:1; }
 }
 
-/* CARDS MAS ATRACTIVAS */
+/* ---------- 5. CARDS MISION VISION ---------- */
 .wrap{
   max-width:1100px;
   margin:0 auto;
@@ -91,11 +169,6 @@
   margin-top:-90px;
   position:relative;
   z-index:5;
-}
-
-@media(max-width:780px){
-  .cards-mision-vision{ grid-template-columns:1fr; margin-top:-50px; }
-  .hero-mv{ height:380px; }
 }
 
 .card-mv{
@@ -169,4 +242,79 @@
   color:#0A1931;
   background: linear-gradient(transparent 65%, rgba(255,215,0,0.4) 65%);
   font-weight:800;
+}
+
+/* ======================================================
+   ⚠️ MEDIA QUERIES - ADAPTACIÓN EXCLUSIVA PARA CELULARES
+   ====================================================== */
+@media(max-width:780px){
+  .cards-mision-vision{ 
+    grid-template-columns:1fr; 
+    margin-top:-50px; 
+    gap:24px;
+  }
+  .hero-mv{ 
+    height:380px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Revela las tres barras ☰ en el celular */
+  }
+
+  .menu {
+    display: none; /* Encapsula el menú horizontal */
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--azul);
+    padding: 20px;
+    gap: 12px;
+    border-bottom: 4px solid var(--amarillo);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    z-index: 99999;
+  }
+
+  /* Despliega verticalmente por la acción de cabecera.js */
+  .menu.active {
+    display: flex;
+  }
+
+  .menu a {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .dropdown {
+    width: 100%;
+  }
+
+  .btn-menu-dropdown {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+  }
+
+  .dropdown-menu {
+    position: static; /* Descolapsa el submenú empujando los ítems de abajo */
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+    border: none;
+    margin-top: 5px;
+    border-radius: 8px;
+  }
+
+  .dropdown-menu a {
+    color: #ffffff !important; /* Establece los textos a blanco sobre fondo oscuro móvil */
+    padding-left: 24px;
+  }
+
+  .dropdown-menu a:hover {
+    background: rgba(255,255,255,0.15);
+  }
 }

@@ -1,3 +1,75 @@
+/* ======================================================
+   I.E. 81025 JOSE ANTONIO ENCINAS
+   CSS PATRONO / INSPO (ADAPTADO A CELULARES) - 2026
+   ====================================================== */
+
+/* ---------- 1. VARIABLES ---------- */
+:root {
+  --azul: #0A1931;
+  --amarillo: #FFD700;
+  --blanco: #ffffff;
+  --azul-claro: #1e3a8a;
+  --amarillo-hover: #eab308;
+}
+
+/* ---------- 2. ELEMENTOS DE CABECERA Y DROPDOWN ---------- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-menu-dropdown {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+.dropdown-menu {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  min-width: 180px;
+  box-shadow: 0px 8px 24px rgba(10, 25, 49, 0.15);
+  border-radius: 8px;
+  z-index: 1000;
+  overflow: hidden;
+  border: 1px solid rgba(10, 25, 49, 0.1);
+}
+
+.dropdown-menu a {
+  color: var(--azul) !important;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(255, 215, 0, 0.2);
+}
+
+.dropdown-menu.show {
+  display: block !important;
+}
+
+/* BOTÓN HAMBURGUESA (Oculto en computadoras) */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
 /* ===== HERO MINI ===== */
 .hero-mini {
   background: var(--azul);
@@ -54,6 +126,10 @@
   border-bottom: 6px solid var(--azul);
 }
 
+.presentacion-texto {
+  flex: 1 1 450px;
+}
+
 .badge {
   background: var(--azul);
   color: var(--amarillo);
@@ -62,6 +138,7 @@
   font-weight: 800;
   font-size: 12px;
   letter-spacing: 1px;
+  display: inline-block;
 }
 
 .presentacion-texto h2 {
@@ -82,6 +159,7 @@
 .resumen {
   color: #334155;
   margin-bottom: 16px;
+  line-height: 1.6;
 }
 
 .frase {
@@ -92,6 +170,7 @@
   font-style: italic;
   color: var(--azul);
   font-weight: 600;
+  line-height: 1.5;
 }
 
 /* ===== TABS INTERACTIVOS ===== */
@@ -145,6 +224,11 @@
   padding-bottom: 4px;
 }
 
+.card p {
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
 .card.destacado {
   border-left: 6px solid var(--azul);
   background: linear-gradient(180deg, #fff, #fefce8);
@@ -153,6 +237,7 @@
 .lista {
   padding-left: 18px;
   color: #334155;
+  line-height: 1.6;
 }
 
 .lista li {
@@ -173,10 +258,12 @@
   border-radius: 8px;
   font-weight: 700;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .btn-libros:hover {
   background: var(--amarillo-hover);
+  border-color: var(--amarillo-hover);
 }
 
 .obras-ocultas {
@@ -186,6 +273,7 @@
   padding: 14px 18px;
   border-radius: 10px;
   border-left: 4px solid var(--amarillo);
+  line-height: 1.6;
 }
 
 /* Accesibilidad focus */
@@ -193,4 +281,98 @@ button:focus-visible,
 a:focus-visible {
   outline: 3px solid var(--amarillo);
   outline-offset: 3px;
+}
+
+/* ======================================================
+   ⚠️ MEDIA QUERIES - ADAPTACIÓN EXCLUSIVA PARA CELULARES
+   ====================================================== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Muestra el botón de menú hamburguesa ☰ */
+  }
+
+  .menu {
+    display: none; /* Oculta el menú de navegación horizontal tradicional */
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--azul);
+    padding: 20px;
+    gap: 12px;
+    border-bottom: 4px solid var(--amarillo);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    z-index: 99999;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu a {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .dropdown {
+    width: 100%;
+  }
+
+  .btn-menu-dropdown {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+  }
+
+  .dropdown-menu {
+    position: static; /* Colapsa hacia abajo empujando el menú móvil */
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+    border: none;
+    margin-top: 5px;
+    border-radius: 8px;
+  }
+
+  .dropdown-menu a {
+    color: #ffffff !important; /* Texto blanco sobre el fondo oscuro del celular */
+    padding-left: 24px;
+  }
+
+  .dropdown-menu a:hover {
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* Ajustes en los componentes internos del Patrono */
+  .presentacion {
+    flex-direction: column; /* Apila el retrato arriba y el texto abajo */
+    padding: 20px;
+  }
+
+  .presentacion-img {
+    width: 100%;
+    max-width: 240px;
+  }
+
+  .presentacion-img img {
+    height: 280px;
+  }
+
+  .tabs {
+    justify-content: center; /* Centra los botones de biografía para que quepan holgadamente */
+    gap: 6px;
+  }
+
+  .tab-btn {
+    width: 100%; /* Botones de biografía en ancho completo para fácil pulsación dactilar */
+    text-align: center;
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .hero-mini h2 {
+    font-size: 26px;
+  }
 }

@@ -1,10 +1,21 @@
+/* ======================================================
+   I.E. 81025 JOSE ANTONIO ENCINAS
+   CSS UBICACIÓN (ADAPTADO A CELULARES) - 2026
+   ====================================================== */
+
+/* ---------- 1. VARIABLES BASE ---------- */
+:root {
+  --azul: #0A1931;
+  --amarillo: #FFD700;
+  --blanco: #ffffff;
+}
+
 /* ===== WRAP ===== */
 .ubicacion-wrap {
   max-width: 1150px;
   margin: 0 auto;
   padding: 32px 20px;
   text-align: center;
-
 }
 
 .grid-ubicacion {
@@ -20,7 +31,6 @@
   }
 }
 
-
 /* ===== INFO CARD ===== */
 .info-card {
   background: #fff;
@@ -30,13 +40,14 @@
   border-left: 6px solid var(--amarillo);
   position: sticky;
   top: 90px;
+  text-align: left; /* Alinea los datos de información a la izquierda */
 }
 
 .badge-ub {
   background: var(--azul);
   color: var(--amarillo);
-  display: center;
-  padding: 4px 12px;
+  display: inline-block; /* ¡Corrección: 'center' no existe en display! */
+  padding: 4px 14px;
   border-radius: 20px;
   font-size: 11px;
   font-weight: 800;
@@ -97,7 +108,7 @@
 }
 
 .link-btn:hover {
-  color: var(--azul-claro);
+  color: #1e3a8a; /* Color fallback azul claro */
 }
 
 .copiado-msg {
@@ -127,7 +138,7 @@
 }
 
 .btn.dark:hover {
-  background: var(--azul-claro);
+  background: #1e3a8a;
   color: var(--amarillo);
 }
 
@@ -197,4 +208,71 @@
   font-size: 12px;
   color: #57534e;
   text-align: center;
+}
+
+/* ======================================================
+   ⚠️ ADAPTACIÓN DEL MENÚ DE CABECERA PARA CELULARES
+   ====================================================== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Muestra el ícono ☰ en el celular */
+  }
+
+  .menu {
+    display: none; /* Oculta el menú horizontal */
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--azul);
+    padding: 20px;
+    gap: 12px;
+    border-bottom: 4px solid var(--amarillo);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    z-index: 99999;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu a {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .dropdown {
+    width: 100%;
+  }
+
+  .btn-menu-dropdown {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+  }
+
+  .dropdown-menu {
+    position: static; /* Colapsa hacia abajo empujando el menú */
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+    border: none;
+    margin-top: 5px;
+    border-radius: 8px;
+  }
+
+  .dropdown-menu a {
+    color: #ffffff !important;
+    padding-left: 24px;
+  }
+
+  .dropdown-menu a:hover {
+    background: rgba(255,255,255,0.15);
+  }
+
+  .mapa-frame {
+    height: 350px; /* Hace el mapa un poco más pequeño en celulares para que quepa mejor */
+  }
 }
